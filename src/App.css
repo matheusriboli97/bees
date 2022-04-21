@@ -5,6 +5,8 @@
   --gray-600: #52525B;
   --gray-700: #3F3F46;
   --iris-100: #5D5FEF;
+  --green-soft: #C2E2C3;
+  --red-soft: #F47174;
 }
 
 body > #root > div {

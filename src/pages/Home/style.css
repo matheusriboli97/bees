@@ -19,3 +19,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.chipMessage {
+  position: absolute;
+  left: 45%;
+  top: 6rem;
+
+}

@@ -4,10 +4,13 @@ import "./style.css";
 import Card from "../../components/Card";
 import { api } from "../../services/api";
 import { ApiResult, Breweries } from "../../models";
+import { UserContext } from "../../context/UserContext";
+import { ChipMessage } from "../../components/ChipMessage";
 
 export default function Home(): JSX.Element {
   const [breweries, setBreweries] = useState<Breweries[]>([]);
   const [dataIsLoading, setDataIsLoading] = useState<boolean>(true);
+  const { chipDetails } = useContext(UserContext);
 
   useEffect(() => {
     setDataIsLoading(true);
@@ -23,13 +26,12 @@ export default function Home(): JSX.Element {
   }, []);
 
   const removeCard = (id: number): void => {
-    console.log('Remove', id);
     setDataIsLoading(true);
     let newBreweries: Breweries[] = breweries;
     newBreweries = breweries.filter((brewery: Breweries) => brewery.id !== id);
     setBreweries(newBreweries);
     setDataIsLoading(false);
-  }
+  };
 
   return (
     <div className="homeContainer">
@@ -40,13 +42,21 @@ export default function Home(): JSX.Element {
         </div>
       )}
       {!dataIsLoading && (
-        <section  className="cardsField">
+        <section className="cardsField">
           {breweries.map((brewery: Breweries) => (
             <div key={brewery.id}>
-              <Card Brewery={brewery} removeCard={removeCard}/>
+              <Card Brewery={brewery} removeCard={removeCard} />
             </div>
           ))}
         </section>
+      )}
+      {chipDetails.show && (
+        <div className="chipMessage">
+          <ChipMessage
+            message={chipDetails.message}
+            success={chipDetails.success}
+          />
+        </div>
       )}
     </div>
   );

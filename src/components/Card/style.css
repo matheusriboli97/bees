@@ -4,6 +4,13 @@
   border: 1px solid black;
 }
 
+.cardContainerWithModal {
+  display: block;
+  width: 24rem;
+  height: 18rem;
+  border: 1px solid black;
+}
+
 .title {
   font-weight: 700;
   font-size: 1.3rem;
