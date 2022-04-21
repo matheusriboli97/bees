@@ -26,7 +26,9 @@ export default function Login(): JSX.Element {
       setErrorMessage(null);
       return true;
     } else {
-      setErrorMessage('Just Valid Characters Please.')
+      if(currentName.length !== 0) {
+        setErrorMessage('Just Valid Characters Please.')
+      }
     return false;
     }
   };
