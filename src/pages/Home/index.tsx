@@ -51,10 +51,9 @@ export default function Home(): JSX.Element {
         </section>
       )}
       {chipDetails.show && (
-        <div className="chipMessage">
+        <div className={chipDetails.success ? 'chipSuccess' : 'chipError'}>
           <ChipMessage
             message={chipDetails.message}
-            success={chipDetails.success}
           />
         </div>
       )}

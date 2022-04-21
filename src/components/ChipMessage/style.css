@@ -1,11 +1,16 @@
 .chipContainerSuccess {
-  position: absolute;
-  width: 2rem;
+  width: 4rem;
   height: 0.5rem;
   background-color: green;
+  color: green;
 }
 .chipContainerError {
   width: 2rem;
   height: 0.5rem;
   background-color: var(--red-soft);
+}
+
+.chipContainer {
+  width: 30px;
+  background-color: blue;
 }

@@ -41,7 +41,7 @@ export function UserProvider({ children }: UserProviderProps) {
         show: false,
         success: true,
       });
-    }, 5000);
+    }, 3000);
   };
 
   return (

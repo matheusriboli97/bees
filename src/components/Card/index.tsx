@@ -22,7 +22,7 @@ export default function Card(props: CardProps): JSX.Element {
   const onSaveClose = (): void => {
     removeCard(Brewery.id);
     showChip({
-      message: "Card Removed",
+      message: "Card Removed!",
       show: true,
       success: true,
     });

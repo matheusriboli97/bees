@@ -1,14 +1,13 @@
 interface ChipMessageProps {
   message: string;
-  success: boolean;
 }
 
 export const ChipMessage = (props: ChipMessageProps): JSX.Element => {
-  const {message, success} = props;
-
+  const {message} = props;
+  
   return (
-    <div className={success ? 'chipContainerSuccess' : 'chipContainerError'}>
-      <p>{message}</p>
+    <div>
+      <p className="chipContainerSuccess">{message}</p>
     </div>
   );
 };
