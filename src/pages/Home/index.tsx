@@ -10,7 +10,7 @@ import { ChipMessage } from "../../components/ChipMessage";
 export default function Home(): JSX.Element {
   const [breweries, setBreweries] = useState<Breweries[]>([]);
   const [dataIsLoading, setDataIsLoading] = useState<boolean>(true);
-  const { chipDetails } = useContext(UserContext);
+  const { chipDetails, showChip } = useContext(UserContext);
 
   useEffect(() => {
     setDataIsLoading(true);
@@ -19,7 +19,11 @@ export default function Home(): JSX.Element {
         setBreweries(res.data);
         setDataIsLoading(false);
       } else {
-        alert("Error requesting the api!");
+        showChip({
+          message: "Error Requesting the api !",
+          show: true,
+          success: false,
+        });
         setDataIsLoading(false);
       }
     });
@@ -43,6 +47,11 @@ export default function Home(): JSX.Element {
       }
     });
     setBreweries(newBreweries);
+    showChip({
+      message: "Card Edited !",
+      show: true,
+      success: true,
+    });
     setDataIsLoading(false);
 
   }
