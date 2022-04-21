@@ -1,0 +1,37 @@
+.cardContainer {
+  width: 24rem;
+  height: 18rem;
+  border: 1px solid black;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 1.8rem 0 1.8rem 1.8rem;
+}
+
+.description {
+  margin: 0 0 1.8rem 1.8rem;
+  color: var(--gray-700);
+  font-weight: 400;
+}
+
+.flagsField {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 1.5rem;
+  margin-left: 1.8rem;
+}
+
+.flagField {
+  background-color: var(--primary-color);
+  width: 75%;
+  border-radius: 6rem;
+  padding: 0.3rem 0 0.3rem 0.8rem;
+}
+
+.trashImage {
+  float: right;
+  margin: 1rem 1rem 0 0;
+}

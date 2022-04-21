@@ -1,0 +1,90 @@
+:root {
+  --primary-color: #F2EC54;
+  --secondary-color: #FFFEF0;
+  --text-color: #000000;
+  --gray-600: #52525B;
+  --gray-700: #3F3F46;
+  --iris-100: #5D5FEF;
+}
+
+body > #root > div {
+  height: 100vh;
+}
+
+@media(max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media(max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--text-color);
+  background: var(--primary-color);
+}
+
+body,
+input,
+textarea,
+button {
+  font: 400 1rem 'Work Sans', mono, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media(max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media(max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--primary-color);
+  color: var(--text-color);
+}
+
+body,
+input,
+textarea,
+button {
+  font: 400 1rem 'Work Sans', mono, sans-serif;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--iris-100);
+}
+
+button:disabled {
+  background-color: var(--gray-600);
+}

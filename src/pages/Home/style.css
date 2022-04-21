@@ -1,0 +1,13 @@
+.homeContainer {
+  background-color: var(--secondary-color);
+  height: 100vh;
+}
+
+.cardsField {
+  height: calc(100% - 3rem);
+  padding: 6rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 0.9rem;
+}

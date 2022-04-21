@@ -1,0 +1,34 @@
+.navbarContainer {
+  width: 100%;
+  height: 3rem;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.turnBack {
+  display: flex;
+  align-items: center;
+  margin-left: 0.7rem;
+}
+
+.turnBackImage {
+  width: 85%;
+ }
+
+.turnBack p {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin-left: 0.6rem;
+}
+
+.nameField {
+  margin-right: 1.2rem;
+}
+
+.nameField p {
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
