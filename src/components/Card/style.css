@@ -31,7 +31,7 @@
   margin-left: 1.8rem;
 }
 
-.flagField {
+.tagField {
   display: flex;
   align-items: center;
   background-color: var(--primary-color);
@@ -40,7 +40,7 @@
   padding: 0.3rem 0 0.3rem 0.8rem;
 }
 
-.flagField img {
+.tagField img {
   margin-right: 0.8rem;
 }
 
@@ -51,5 +51,36 @@
 }
 
 .trashImage:hover {
+  filter: brightness(1.5);
+}
+
+.editableField {
+  display: flex;
+}
+.editableField button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0;
+}
+
+.editableField input {
+  width: 100%;
+  margin-right: 0.4rem;
+  border-radius: 0.6rem;
+  border: none;
+}
+
+.editableField img {
+  cursor: pointer;
+}
+
+.editableField img:hover {
+  filter: brightness(1.5);
+}
+
+.plusCircle {
+  cursor: pointer
+}
+.plusCircle:hover {
   filter: brightness(1.5);
 }

@@ -33,6 +33,20 @@ export default function Home(): JSX.Element {
     setDataIsLoading(false);
   };
 
+  const insertNewTag = (id: number, tag: string): void => {
+    setDataIsLoading(true);
+    const newBreweries: Breweries[] = breweries;
+    newBreweries.map((brewery: Breweries) => {
+      if(brewery.id === id) {
+        brewery.plusTag = tag;
+        brewery.hasPlusTag = true;
+      }
+    });
+    setBreweries(newBreweries);
+    setDataIsLoading(false);
+
+  }
+
   return (
     <div className="homeContainer">
       <Navbar />
@@ -45,7 +59,7 @@ export default function Home(): JSX.Element {
         <section className="cardsField">
           {breweries.map((brewery: Breweries) => (
             <div key={brewery.id}>
-              <Card Brewery={brewery} removeCard={removeCard} />
+              <Card Brewery={brewery} removeCard={removeCard} insertNewTag={insertNewTag} />
             </div>
           ))}
         </section>

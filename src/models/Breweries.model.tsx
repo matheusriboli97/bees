@@ -16,4 +16,6 @@ export interface Breweries {
   website_url: string;
   updated_at: string;
   created_at: string;
+  hasPlusTag: boolean;
+  plusTag: string;
 }

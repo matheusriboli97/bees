@@ -3,20 +3,24 @@ import Phone from "../../assets/Phone.svg";
 import ChartSquareBar from "../../assets/ChartSquareBar.svg";
 import LocationMarker from "../../assets/LocationMarker.svg";
 import PlusCircle from "../../assets/PlusCircle.svg";
+import CheckCircle from "../../assets/CheckCircle.svg";
 import { Breweries } from "../../models";
 import { Modal } from "../Modal";
 import "./style.css";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 
 interface CardProps {
   Brewery: Breweries;
   removeCard: (id: number) => void;
+  insertNewTag: (id: number, tag: string) => void;
 }
 
 export default function Card(props: CardProps): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const { Brewery, removeCard } = props;
+  const [showEditField, setShowEditField] = useState<boolean>(false);
+  const [newTag, setNewTag] = useState<string>('');
+  const { Brewery, removeCard, insertNewTag } = props;
   const { showChip } = useContext(UserContext);
 
   const onSaveClose = (): void => {
@@ -32,6 +36,11 @@ export default function Card(props: CardProps): JSX.Element {
   const onCancelClose = (): void => {
     setShowModal(false);
   };
+
+  const onInsert = (): void => {
+    setShowEditField(false);
+    insertNewTag(Brewery.id, newTag);
+  }
 
   return (
     <Fragment>
@@ -60,13 +69,13 @@ export default function Card(props: CardProps): JSX.Element {
             </p>
           </section>
           <div className="flagsField">
-            <div className="flagField">
+            <div className="tagField">
               <img src={ChartSquareBar} alt="ChartSquareBar" />
               <p>
                 {Brewery.brewery_type ? Brewery.brewery_type : "No Type Found"}
               </p>
             </div>
-            <div className="flagField">
+            <div className="tagField">
               <img src={LocationMarker} alt="LocationMarker" />
               <p>
                 {Brewery.postal_code
@@ -74,13 +83,33 @@ export default function Card(props: CardProps): JSX.Element {
                   : "No Zip Code Found"}
               </p>
             </div>
-            <div className="flagField">
+            <div className="tagField">
               <img src={Phone} alt="Phone" />
               <p>{Brewery.phone ? Brewery.phone : "No Phone Found"}</p>
             </div>
-            <div onClick={() => console.log("clicked")} className="flagField">
-              <img src={PlusCircle} alt="PlusCircle" />
-              <p>Add More</p>
+            <div className="tagField">
+              {!showEditField && !Brewery.hasPlusTag && (
+                <Fragment>
+                  <img
+                    src={PlusCircle}
+                    alt="PlusCircle"
+                    onClick={() => setShowEditField(true)}
+                    className="plusCircle"
+                  />
+                  <p>Add More</p>
+                </Fragment>
+              )}
+              {!showEditField && Brewery.hasPlusTag && (
+                <Fragment>
+                  <p>{Brewery.plusTag}</p>
+                </Fragment>
+              )}
+              {showEditField && (
+                <div className="editableField">
+                  <img src={CheckCircle} alt="CheckCircle" onClick={onInsert} />
+                  <input className="inlineInput" type="text" onChange={(e) => setNewTag(e.target.value)} />
+                </div>
+              )}
             </div>
           </div>
         </div>
