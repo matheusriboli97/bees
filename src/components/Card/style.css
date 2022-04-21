@@ -25,13 +25,20 @@
 }
 
 .flagField {
+  display: flex;
+  align-items: center;
   background-color: var(--primary-color);
-  width: 75%;
+  width: 90%;
   border-radius: 6rem;
   padding: 0.3rem 0 0.3rem 0.8rem;
+}
+
+.flagField img {
+  margin-right: 0.8rem;
 }
 
 .trashImage {
   float: right;
   margin: 1rem 1rem 0 0;
+  cursor: pointer;
 }

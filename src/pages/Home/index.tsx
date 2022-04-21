@@ -5,12 +5,13 @@ import Navbar from '../../components/Navbar';
 import './style.css';
 import Card from "../../components/Card";
 
+// Overflow!!!
+
 export default function Home(): JSX.Element {
   return (
     <div className="homeContainer">
       <Navbar />
       <div className="cardsField">
-        <Card />
         <Card />
         <Card />
         <Card />
