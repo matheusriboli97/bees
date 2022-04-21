@@ -42,3 +42,7 @@
   margin: 1rem 1rem 0 0;
   cursor: pointer;
 }
+
+.trashImage:hover {
+  filter: brightness(1.5);
+}

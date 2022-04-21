@@ -3,35 +3,43 @@ import Phone from '../../assets/Phone.svg'
 import ChartSquareBar from '../../assets/ChartSquareBar.svg'
 import LocationMarker from '../../assets/LocationMarker.svg'
 import PlusCircle from '../../assets/PlusCircle.svg'
+import { Breweries } from '../../models';
 import "./style.css";
 
-export default function Card(): JSX.Element {
+interface CardProps {
+  Brewery: Breweries,
+  removeCard: (id: number) => void
+}
+
+export default function Card(props: CardProps): JSX.Element {
+
+  const {Brewery, removeCard} = props;
   return (
     <div className="cardContainer">
-      <img className="trashImage" src={Trash} alt="Trash" />
+      <img className="trashImage" src={Trash} alt="Trash" onClick={() => removeCard(Brewery.id)} />
       <header>
-        <p className="title">10-56 Brewing Company</p>
+        <p className="title">{Brewery.name ? Brewery.name : 'No Name Found'}</p>
       </header>
       <section className="description">
-        <p>400 Brown cir</p>
-        <p>Knox, Indiana - United States</p>
+        <p>{Brewery.street ? Brewery.street : 'No Street Found'}</p>
+        <p>{Brewery.city ? Brewery.city : 'No City Found'}, {Brewery.state ? Brewery.state : 'No State Found'} - {Brewery.country ? Brewery.country : 'No Country Found'}</p>
       </section>
       <div className="flagsField">
         <div className="flagField">
           <img src={ChartSquareBar} alt="ChartSquareBar" />
-          <p>micro</p>
+          <p>{Brewery.brewery_type ? Brewery.brewery_type : 'No Type Found'}</p>
         </div>
         <div className="flagField">
           <img src={LocationMarker} alt="LocationMarker" />
-          <p>46534</p>
+          <p>{Brewery.postal_code ? Brewery.postal_code : 'No Zip Code Found'}</p>
         </div>
         <div className="flagField">
           <img src={Phone} alt="Phone" />
-          <p>6308165790</p>
+          <p>{Brewery.phone ? Brewery.phone : 'No Phone Found'}</p>
         </div>
         <div className="flagField">
           <img src={PlusCircle} alt="PlusCircle" />
-          <p>add more</p>
+          <p>Add More</p>
         </div>
       </div>
     </div>
