@@ -5,18 +5,31 @@ import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 
 export default function Login(): JSX.Element {
-  const { setName } = useContext(UserContext);
+  const { setName, showChip } = useContext(UserContext);
   const [dataIsReady, setDataIsReady] = useState<boolean>(false);
   const [currentName, setCurrentName] = useState<string>("");
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    if (currentName.length && isChecked) {
+    hasInvalidChars()
+    if (currentName.length && isChecked && hasInvalidChars()) {
       setDataIsReady(true);
     } else {
       setDataIsReady(false);
     }
   }, [currentName, isChecked]);
+
+  const hasInvalidChars = (): boolean => {
+    var letters = /^[0-9a-zA-Z]+$/;
+    if (letters.test(currentName)) {
+      setErrorMessage(null);
+      return true;
+    } else {
+      setErrorMessage('Just Valid Characters Please.')
+    return false;
+    }
+  };
 
   return (
     <div className="loginContainer">
@@ -31,6 +44,7 @@ export default function Login(): JSX.Element {
           className="textInput"
           onChange={(e) => setCurrentName(e.target.value)}
         />
+        <p className="errorMessage">{errorMessage}</p>
         <section className="checkboxField">
           <input
             type="checkbox"
